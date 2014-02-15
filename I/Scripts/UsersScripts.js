@@ -1,0 +1,6 @@
+﻿Users = {
+
+}
+$(document).ready(function () {
+
+})

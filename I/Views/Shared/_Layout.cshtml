@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div id="appScreen">
+        <header>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <h1 id="logo">Ijepai</h1>
+                </div>
+                <div class="float-right">
+                    @Html.Partial("_TopNavPartial")
+                </div>
+            </div>
+        </header>
+        <div id="content">
+            @RenderSection("LoginWindow", required: true)
+            <div id="pages">
+                <div id="workScreen">
+                    @RenderBody()
+                    <section id="logoutSec">
+                        @Html.Partial("~/Views/Account/LogoutSec.cshtml")
+                    </section>
+                </div><!-- #workScreen -->
+                @RenderSection("OpenWindows", required: true)
+            </div><!-- #pages -->
+        </div>
+        <footer>
+            This is footer of site.<a href="#">Terms and Conditions</a>
+        </footer>
+    </div><!-- #page -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/appScripts")
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/i18n/grid.locale-en.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery.jqGrid.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+﻿@{
+    Layout = null;
+}
+
+@using (Ajax.BeginForm("LogOff", "Account", new { }, new AjaxOptions { OnFailure = "Util.logoutFailure", OnSuccess = "Util.logoutSuccess" }, new { id = "logoutForm" }))
+{
+    @Html.AntiForgeryToken();
+}

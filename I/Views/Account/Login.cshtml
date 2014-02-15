@@ -1,0 +1,38 @@
+﻿@model I.Models.LoginModel
+
+<section id="loginForm">
+    <h3 class="tabHeaderRounded">Login</h3>
+    @using (Ajax.BeginForm("Login", "Account", new AjaxOptions { OnSuccess = "Util.loginSuccess", OnFailure = "Util.loginFailure" }, new { id = "form0" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <ol>
+                <li>
+                    @Html.LabelFor(m => m.OrganizationCode)
+                    @Html.TextBoxFor(m => m.OrganizationCode)
+                    @Html.ValidationMessageFor(m => m.OrganizationCode)
+                </li>
+                <li>
+                    @Html.LabelFor(m => m.UserName)
+                    @Html.TextBoxFor(m => m.UserName)
+                    @Html.ValidationMessageFor(m => m.UserName)
+                </li>
+                <li>
+                    @Html.LabelFor(m => m.Password)
+                    @Html.PasswordFor(m => m.Password)
+                    @Html.ValidationMessageFor(m => m.Password)
+                </li>
+                <li id="rememberMe">
+                    @Html.CheckBoxFor(m => m.RememberMe)
+                    @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+                </li>
+            </ol>
+            <div id="formControls">
+                <input type="submit" id="loginBtn" value="Log in" />
+                <a href="#">Forgot Password</a>
+            </div><!-- #formControls -->
+        </fieldset>
+    }
+</section>
